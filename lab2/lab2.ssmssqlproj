@@ -19,23 +19,29 @@
     </LogicalFolder>
     <LogicalFolder Name="查询" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="add_test_data.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LARRY:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-LARRY</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>add_test_data.sql</FullPath>
+        </FileNode>
         <FileNode Name="create_tables.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LARRY:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-LARRY</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>create_tables.sql</FullPath>
         </FileNode>
-        <FileNode Name="initial_data.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LARRY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-LARRY</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>initial_data.sql</FullPath>
-        </FileNode>
         <FileNode Name="quarys.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LARRY:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-LARRY</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>quarys.sql</FullPath>
+        </FileNode>
+        <FileNode Name="update_data.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-LARRY:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-LARRY</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>update_data.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

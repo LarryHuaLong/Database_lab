@@ -1,0 +1,28 @@
+FID,FNAME,FTYPE,DNAME,length,IS3D,GRADE
+1,战狼2                         ,动作、战争,吴京                          ,123,Y,8
+2,摔跤吧！爸爸                  ,剧情、传记,Nitesh Tiwari                 ,161,N,9
+3,敦刻尔克                      ,历史、战争,Christopher Nolan             ,107,N,8
+4,芳华                          ,剧情、历史,冯小刚                        ,136,N,7
+5,黑豹                          ,动作、科幻,Ryan Coogler                  ,134,Y,6
+6,头号玩家                      ,动作、科幻,Steven Spielberg              ,140,Y,9
+FID,FNAME,FTYPE,DNAME,length,IS3D,GRADE
+1,泰坦尼克号                    ,爱情      ,James Cameron                 ,194,N,93
+2,荒野猎人                      ,惊悚      ,Alejandro González I?árritu ,156,N,78
+3,盗梦空间                      ,科幻      ,Christopher Nolan             ,148,N,93
+4,星际穿越                      ,科幻      ,Christopher Nolan             ,169,N,92
+5,敦刻尔克                      ,战争      ,Christopher Nolan             ,107,N,84
+6,芳华                          ,历史      ,冯小刚                        ,136,N,70
+7,让子弹飞                      ,喜剧      ,冯小刚                        ,132,N,87
+8,老炮儿                        ,犯罪      ,冯小刚                        ,137,N,79
+9,西游伏妖篇                    ,喜剧      ,周星驰                        ,108,N,55
+10,美人鱼                        ,喜剧      ,周星驰                        ,93,Y,67
+11,功夫                          ,喜剧      ,周星驰                        ,100,Y,80
+12,太平轮(上)                    ,爱情      ,吴宇森                        ,129,N,58
+13,太平轮(下)                    ,爱情      ,吴宇森                        ,131,N,65
+14,三傻大闹宝莱坞                ,喜剧      ,Rajkumar Hirani               ,171,N,92
+15,摔跤吧！爸爸                  ,传记      ,Nitesh Tiwari                 ,161,N,91
+16,战狼                          ,动作      ,吴京                          ,90,Y,80
+17,战狼2                         ,动作      ,吴京                          ,123,Y,85
+18,头号玩家                      ,科幻      ,Steven Spielberg              ,140,Y,90
+19,艺伎回忆录                    ,爱情      ,Rob Marshall                  ,145,N,72
+20,湄公河行动                    ,警匪      ,林超贤                        ,124,Y,80

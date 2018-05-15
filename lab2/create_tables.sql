@@ -1,6 +1,7 @@
 USE lab_1and2;
 
---µçÓ°±í¡¾µçÓ°±àºÅ£¬µçÓ°Ãû³Æ£¬µçÓ°ÀàÐÍ£¬µ¼ÑÝÐÕÃû£¬µçÓ°Ê±³¤£¨ÒÔ·ÖÖÓ¼Æ£©£¬ÊÇ·ñ3D£¬ÓÃ»§ÆÀ·Ö¡¿
+--ç”µå½±è¡¨ã€ç”µå½±ç¼–å·ï¼Œç”µå½±åç§°ï¼Œç”µå½±ç±»åž‹ï¼Œå¯¼æ¼”å§“åï¼Œç”µå½±æ—¶é•¿ï¼ˆä»¥åˆ†é’Ÿè®¡ï¼‰ï¼Œæ˜¯å¦3Dï¼Œç”¨æˆ·è¯„åˆ†ã€‘
+--FILM(FID int, FNAME char(30), FTYPE char(10), DNAME char(30), length int, IS3D char(1)ï¼ŒGRADE int)
 IF NOT EXISTS (
     SELECT name
 FROM sys.tables
@@ -8,17 +9,18 @@ WHERE name = N'FILM'
 )
 CREATE TABLE FILM
 (
-    FID		INT NOT NULL PRIMARY KEY,
-    FNAME	CHAR(10) NOT NULL,
-    FTYPE	CHAR(10) NOT NULL,
-    DNAME	CHAR(30) NOT NULL,
-	LENGTH	INT NOT NULL,
-	IS3D	CHAR(1) NOT NULL CONSTRAINT [CK_IS3D] CHECK  (([IS3D]='N' OR [IS3D]='Y')) ,
-	GRADE	INT CONSTRAINT [CK_FILM_GRADE] CHECK  (([GRADE]>=(0) AND [GRADE]<=(100) OR [GRADE] IS NULL))
+	FID    INT      NOT NULL PRIMARY KEY,
+	FNAME  CHAR(10) NOT NULL,
+	FTYPE  CHAR(10) NULL,
+	DNAME  CHAR(30) NULL,
+	LENGTH INT      NULL,
+	IS3D   CHAR(1)  NULL CONSTRAINT [CK_IS3D] CHECK  (([IS3D]='N' OR [IS3D]='Y' OR [IS3D] IS NULL)) ,
+	GRADE  INT      NULL CONSTRAINT [CK_FILM_GRADE] CHECK  (([GRADE]>=(0) AND [GRADE]<=(100) OR [GRADE] IS NULL))
 );
-----Ö÷ÂëÎªµçÓ°±àºÅ£¬IS3DÈ¡ÖµÎª¡¯Y¡¯±íÊ¾ÊÇ3DµçÓ°£¬¡¯N¡¯±íÊ¾²»ÊÇ£¬ÓÃ»§ÆÀ·Ö¹æ¶¨Îª0~100·ÖÖ®¼ä»òÕßÎª¿ÕÖµ¡£
+----ä¸»ç ä¸ºç”µå½±ç¼–å·ï¼ŒIS3Då–å€¼ä¸ºâ€™Yâ€™è¡¨ç¤ºæ˜¯3Dç”µå½±ï¼Œâ€™Nâ€™è¡¨ç¤ºä¸æ˜¯ï¼Œç”¨æˆ·è¯„åˆ†è§„å®šä¸º0~100åˆ†ä¹‹é—´æˆ–è€…ä¸ºç©ºå€¼ã€‚
 
---ÑÝÔ±±í¡¾ÑÝÔ±±àºÅ£¬ÑÝÔ±ÐÕÃû£¬ÐÔ±ð£¬³öÉúÄê·Ý¡¿
+--æ¼”å‘˜è¡¨ã€æ¼”å‘˜ç¼–å·ï¼Œæ¼”å‘˜å§“åï¼Œæ€§åˆ«ï¼Œå‡ºç”Ÿå¹´ä»½ã€‘
+--ACTOR(ACTID int, ANAME char(30), SEX char(2), BYEAR int)
 IF NOT EXISTS (
     SELECT name
 FROM sys.tables
@@ -26,14 +28,15 @@ WHERE name = N'ACTOR'
 )
 CREATE TABLE ACTOR
 (
-	ACTID	int PRIMARY KEY NOT NULL, 
-	ANAME	char(30) NOT NULL, 
-	SEX		char(2)NOT NULL, 
-	BYEAR	int NOT NULL
+	ACTID INT      PRIMARY KEY NOT NULL,
+	ANAME CHAR(30) NOT NULL,
+	SEX   CHAR(2)  NOT NULL,
+	BYEAR INT      NULL
 );
-----Ö÷ÂëÎªÑÝÔ±±àºÅ
+----ä¸»ç ä¸ºæ¼”å‘˜ç¼–å·
 
---²ÎÑÝ±í¡¾ÑÝÔ±±àºÅ£¬µçÓ°±àºÅ£¬ÊÇ·ñÖ÷½Ç£¬ÓÃ»§¶Ô¸ÃÑÝÔ±ÔÚ¸ÃµçÓ°ÖÐµÄÆÀ·Ö¡¿
+--å‚æ¼”è¡¨ã€æ¼”å‘˜ç¼–å·ï¼Œç”µå½±ç¼–å·ï¼Œæ˜¯å¦ä¸»è§’ï¼Œç”¨æˆ·å¯¹è¯¥æ¼”å‘˜åœ¨è¯¥ç”µå½±ä¸­çš„è¯„åˆ†ã€‘
+--ACTIN(ACTID int, FID int, ISLEADING char(1), GRADE int)
 IF NOT EXISTS (
     SELECT name
 FROM sys.tables
@@ -41,48 +44,50 @@ WHERE name = N'ACTIN'
 )
 CREATE TABLE ACTIN
 (
-	ACTID int NOT NULL, 
-	FID int NOT NULL, 
-	ISLEADING char(1) NULL CONSTRAINT [CK_ISLEADING] CHECK  (([ISLEADING]='N' OR [ISLEADING]='Y')) , 
-	GRADE int NULL CONSTRAINT [CK_ACTIN_GRADE] CHECK  (([GRADE]>=(0) AND [GRADE]<=(100) OR [GRADE] IS NULL)),
+	ACTID     INT     NOT NULL,
+	FID       INT     NOT NULL,
+	ISLEADING CHAR(1) NULL CONSTRAINT [CK_ISLEADING] CHECK  (([ISLEADING]='N' OR [ISLEADING]='Y')) ,
+	GRADE     INT     NULL CONSTRAINT [CK_ACTIN_GRADE] CHECK  (([GRADE]>=(0) AND [GRADE]<=(100) OR [GRADE] IS NULL)),
 	PRIMARY KEY (ACTID,FID),
-    FOREIGN KEY (ACTID) REFERENCES ACTOR(ACTID),
-    FOREIGN KEY (FID) REFERENCES FILM(FID),
+	FOREIGN KEY (ACTID) REFERENCES ACTOR(ACTID),
+	FOREIGN KEY (FID) REFERENCES FILM(FID),
 );
-----Ö÷Âë¡¢ÍâÂëÇëÒÀ¾ÝÓ¦ÓÃ±³¾°ºÏÀí¶¨Òå¡£ISLEADINGÈ¡ÖµÎª¡¯Y¡¯±íÊ¾ÊÇ£¬¡¯N¡¯±íÊ¾²»ÊÇÖ÷½Ç£¬Ò²¿ÉÄÜÈ¡¿ÕÖµ£¬±íÊ¾²»Ì«È·¶¨¸ÃÑÝÔ±ÔÚ¸ÃµçÓ°ÖÐÊÇ·ñÖ÷½Ç¡£GRADE¹æ¶¨Îª0~100·ÖÖ®¼ä»òÕßÎª¿ÕÖµ¡£
+----ä¸»ç ã€å¤–ç è¯·ä¾æ®åº”ç”¨èƒŒæ™¯åˆç†å®šä¹‰ã€‚ISLEADINGå–å€¼ä¸ºâ€™Yâ€™è¡¨ç¤ºæ˜¯ï¼Œâ€™Nâ€™è¡¨ç¤ºä¸æ˜¯ä¸»è§’ï¼Œä¹Ÿå¯èƒ½å–ç©ºå€¼ï¼Œè¡¨ç¤ºä¸å¤ªç¡®å®šè¯¥æ¼”å‘˜åœ¨è¯¥ç”µå½±ä¸­æ˜¯å¦ä¸»è§’ã€‚GRADEè§„å®šä¸º0~100åˆ†ä¹‹é—´æˆ–è€…ä¸ºç©ºå€¼ã€‚
 
---µçÓ°Ôº±í¡¾µçÓ°Ôº±àºÅ£¬µçÓ°ÔºÃû×Ö£¬Ó°ÔºËùÔÚÐÐÕþÇø£¬Ó°ÔºµØÖ·¡¿
+--ç”µå½±é™¢è¡¨ã€ç”µå½±é™¢ç¼–å·ï¼Œç”µå½±é™¢åå­—ï¼Œå½±é™¢æ‰€åœ¨è¡Œæ”¿åŒºï¼Œå½±é™¢åœ°å€ã€‘
+--THEATER (TID int, TNAME char(20), TAREA char(20), ADDRESS char(30))
 IF NOT EXISTS (
     SELECT name
 FROM sys.tables
 WHERE name = N'THEATER'
 )
-CREATE TABLE THEATER 
+CREATE TABLE THEATER
 (
-	TID int NOT NULL PRIMARY KEY, 
-	TNAME char(20)NOT NULL, 
-	TAREA char(20)NOT NULL, 
-	ADDRESS char(30)NOT NULL
+	TID     INT      NOT NULL PRIMARY KEY,
+	TNAME   CHAR(20)NOT NULL,
+	TAREA   CHAR(20) NULL,
+	ADDRESS CHAR(30) NULL
 );
-----Ö÷ÂëÎªµçÓ°Ôº±àºÅ£¬Ó°ÔºËùÔÚÐÐÕþÇøÈ¡ÖµÈç¡°ºéÉ½Çø¡±¡¢¡°Îä²ýÇø¡±µÈµÈ¡£
+----ä¸»ç ä¸ºç”µå½±é™¢ç¼–å·ï¼Œå½±é™¢æ‰€åœ¨è¡Œæ”¿åŒºå–å€¼å¦‚â€œæ´ªå±±åŒºâ€ã€â€œæ­¦æ˜ŒåŒºâ€ç­‰ç­‰ã€‚
 
---ÉÏÓ³±í¡¾µçÓ°±àºÅ£¬Ó°Ôº±àºÅ£¬ÉÏÓ³Äê·Ý£¬ÉÏÓ³ÔÂ·Ý¡¿
+--ä¸Šæ˜ è¡¨ã€ç”µå½±ç¼–å·ï¼Œå½±é™¢ç¼–å·ï¼Œä¸Šæ˜ å¹´ä»½ï¼Œä¸Šæ˜ æœˆä»½ã€‘
+--SHOW(FID int, TID int , PRICE int, YEAR int , MONTH int)
 IF NOT EXISTS (
     SELECT name
 FROM sys.tables
 WHERE name = N'SHOW'
 )CREATE TABLE SHOW
 (
-	FID int NOT NULL, 
-	TID int NOT NULL, 
-	PRICE int NOT NULL, 
-	YEAR int NOT NULL, 
-	MONTH int NOT NULL,
+	FID   INT NOT NULL,
+	TID   INT NOT NULL,
+	PRICE INT NULL,
+	YEAR  INT NULL,
+	MONTH INT NULL,
 	PRIMARY KEY (FID,TID),
-    FOREIGN KEY (FID) REFERENCES FILM(FID),
-    FOREIGN KEY (TID) REFERENCES THEATER(TID)
+	FOREIGN KEY (FID) REFERENCES FILM(FID),
+	FOREIGN KEY (TID) REFERENCES THEATER(TID)
 );
-----¼Ù¶¨Ò»²¿µçÓ°ÔÚÒ»¼ÒÓ°ÔºÖ»ÉÏÓ³Ò»´Î£¬Ö÷Âë¡¢ÍâÂëÇëÒÀ¾ÝÓ¦ÓÃ±³¾°ºÏÀí¶¨Òå¡£
+----å‡å®šä¸€éƒ¨ç”µå½±åœ¨ä¸€å®¶å½±é™¢åªä¸Šæ˜ ä¸€æ¬¡ï¼Œä¸»ç ã€å¤–ç è¯·ä¾æ®åº”ç”¨èƒŒæ™¯åˆç†å®šä¹‰ã€‚
 
 
 

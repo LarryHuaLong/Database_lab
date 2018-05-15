@@ -1,0 +1,39 @@
+ACTID,ANAME,SEX,BYEAR
+1,吴京      ,男,1974
+2,卢靖姗    ,女,1985
+3,吴刚      ,男,1958
+4,Aamir Khan,男,1965
+5,Sanya Malh,女,1992
+6,Fionn Whit,男,1997
+7,Tom Glynn ,男,1995
+8,黄轩      ,男,1985
+9,苗苗      ,女,1988
+10,Chadwick  ,男,1977
+11,Lupita Ny ,女,1983
+12,Tye Sheri ,男,1996
+13,Olivia Co ,女,1993
+ACTID,ANAME,SEX,BYEAR
+1,Leonardo DiCaprio             ,男,1974
+2,Kate Winslet                  ,女,1975
+3,Tom Hardy                     ,男,1977
+4,Miranda Nolan                 ,女,1976
+5,Mark Rylance                  ,男,1960
+6,Matthew McConaughey           ,男,1969
+7,Michael Caine                 ,男,1933
+8,Fionn Whitehead               ,男,1997
+9,Tye Sheridan                  ,男,1996
+10,黄轩                          ,男,1985
+11,冯小刚                        ,男,1958
+12,吴亦凡                        ,男,1990
+13,张涵予                        ,男,1964
+14,姜文                          ,男,1963
+15,林子聪                        ,男,1976
+16,林允                          ,女,1996
+17,周星驰                        ,男,1962
+18,章子怡                        ,女,1979
+19,金城武                        ,男,1973
+20,Aamir Khan                    ,男,1965
+21,吴京                          ,男,1974
+22,渡边谦                        ,男,1959
+23,彭于晏                        ,男,1982
+24,张译                          ,男,1978
