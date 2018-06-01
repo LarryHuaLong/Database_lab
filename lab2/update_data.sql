@@ -59,6 +59,8 @@ AS
 GO
 --6）触发器实验
 ----编写一个触发器，用于实现对电影表的完整性控制规则：当增加一部电影时，若导演的姓名为周星驰，则电影类型自动设置为“喜剧”。
+USE lab_1and2;
+
 CREATE TRIGGER IS_ZHOUXINCHI
 ON FILM 
 AFTER INSERT

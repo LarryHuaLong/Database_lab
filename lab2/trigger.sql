@@ -1,0 +1,12 @@
+
+CREATE TRIGGER IS_ZHOUXINCHI
+ON FILM 
+AFTER INSERT
+AS
+DECLARE @fid int
+DECLARE @dname VARCHAR(30)
+SELECT @fid = FID FROM inserted
+SELECT @dname = DNAME FROM inserted
+IF @dname = 'ÖÜÐÇ³Û'
+    UPDATE FILM SET FTYPE = 'Ï²¾ç' WHERE FID = @fid 
+GO
