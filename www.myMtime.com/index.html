@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>myMtime.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/movies.css" media="all" type="text/css">
+</head>
+<body id="bodyRegion">
+    <script src="js/scripts.js"></script>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-xl navbar-light bg-light navbar-dark bg-dark ">
+                    <div class="container-fluid ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">myMtime</a>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <form class="form-inline ml-md-auto">
+                                <input class="form-control mr-sm-2" type="text" />
+                                <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                                    Search
+                                </button>
+                            </form> 
+                            <ul class="navbar-nav ml-md-auto">
+                                <li class="nav-item active">
+                                    <!-- Button trigger modal -->
+                                    <button id="modalToggle" type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#loginModal">
+                                        登录
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="login_title" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+                                                        <form role="form">
+                                                            <div class="form-group">
+                                                                <label for="InputEmail">
+                                                                    Email address
+                                                                </label>
+                                                                <input class="form-control" id="InputEmail" type="email" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="InputPassword">
+                                                                    Password
+                                                                </label>
+                                                                <input class="form-control" id="InputPassword" type="password" />
+                                                            </div>
+                                                            <button id="btn-signup"type="button" class="btn">
+                                                                注册
+                                                            </button>
+                                                            <button id="btn-login" type="button" class="btn btn-primary">
+                                                                登录
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab">
+                            <a class="nav-link active" id="v-pills-onshow-tab" data-toggle="pill" href="#v-pills-onshow">正在热映</a>
+                            <a class="nav-link" id="v-pills-clssifysearch-tab" data-toggle="pill" href="#v-pills-clssifysearch">分类搜索</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-onshow">
+                                这里显示正在上映的影片
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-clssifysearch">
+                                <div class="tabbable" id="tabs-search">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#panel-searchmovie" data-toggle="tab">电影查询</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#panel-searchpeople" data-toggle="tab">人物查询</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="panel-searchmovie">
+                                            <!--tiaojian -->
+                                            <dl id="paramsPickerRegion" class="msearch_out">
+                                                <dd class="clearfix">
+                                                    <strong>类型：</strong>
+                                                    <div id="typePickerRegion">
+                                                        <ul>
+                                                            <li>
+                                                                <a cvalue="192" href="#">剧情</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="201" href="#">喜剧</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="186" href="#">短片</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="183" href="#">爱情</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="189" href="#">纪录片</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="185" href="#">动作</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="191" href="#">惊悚</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="194" href="#">恐怖</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="184" href="#">动画</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="200" href="#">犯罪</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="195" href="#">冒险</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="190" href="#">家庭</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="197" href="#">悬疑</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="188" href="#">奇幻</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="193" href="#">科幻</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="199" href="#">战争</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="840" href="#">传记</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="203" href="#">音乐</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="789" href="#">历史</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="198" href="#">歌舞</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="196" href="#">西部</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="796" href="#">运动</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="5979" href="#">古装</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="5976" href="#">武侠</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="5972" href="#">戏曲</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="187" href="#">黑色电影</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="5990" href="#">儿童</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="34773" href="#">文艺</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="34770" href="#">青春</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="31456" href="#">微电影</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="34768" href="#">灾难</a>
+                                                            </li>
+                                                            <li>
+                                                                <a cvalue="34777" href="#">励志</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <p class="line_dot mt6">&nbsp;</p>
+                                            <h4 id="searchResultTotalCountRegion" class="px14">请选择搜索条件</h4>
+                                            <div id="searchResultRegion">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="panel-searchpeople">
+                                            人物搜索
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="data_top">
+                    <h3 class="px14 mt12" onclick="getTopMovies()">评分TOP10</h3>
+                    <ul id="hotMovieRegion">
+                    </ul>
+                    <p class="line_solid_black mt30">&nbsp;</p>
+                    <h3 class="px14 mt12" onclick="getTopPeople()">关注TOP10</h3>
+                    <ul id="hotPeopleRegion">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
